@@ -1,8 +1,8 @@
 // npm run start
 
 const express = require("express");
-const sqlite3 = require("sqlite3").verbose();
-
+// const sqlite3 = require("sqlite3").verbose();
+const mysql2 = require("mysql2");
 const server = express();
 const host = "localhost";
 const port = 8888;
@@ -12,7 +12,14 @@ server.use(express.json());
 server.use(cors());
 server.use(helmet());
 
-const db = new sqlite3.Database("./db.sqlite", (err) => {
+// const db = new sqlite3.Database("./db.sqlite", (err) => {
+//   if (err) {
+//     console.error(err.message);
+//   }
+//   console.log("Connected to the database.");
+// });
+
+const db = mysql2.createConnection("./db.sqlite, ", (err) => {
   if (err) {
     console.error(err.message);
   }
