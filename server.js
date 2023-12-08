@@ -34,9 +34,7 @@ server.post("/submit-form", (req, res) => {
   );
 });
 
-server.listen(port, () => {
-  console.log(`Server is running on ${host}:${port}`);
-});
+
 
 // =========================================================================================
 server.post("/nri-form", (req, res) => {
@@ -53,4 +51,15 @@ server.post("/nri-form", (req, res) => {
       res.send("Form data successfully submitted to SQLite database");
     }
   );
+});
+server.get("/", (req, res) => {
+  res.status(200).send("server is running ok")
+
+});
+
+
+
+
+server.listen(port, () => {
+  console.log(`Server is running on ${host}:${port}`);
 });
